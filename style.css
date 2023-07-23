@@ -1,0 +1,269 @@
+@font-face {
+  font-family: "Inter";
+  src: url(./assets/fonts/Inter-Regular.ttf) format("truetype");
+}
+
+:root {
+  --main-bg-color: #e7dfda;
+  --main-text-color: #131313;
+  --max-width: 1400px;
+}
+
+:root {
+  --main-bg-color: #131313;
+  --main-text-color: #e7dfda;
+  --max-width: 1400px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Inter;
+  letter-spacing: -0.03em;
+  color: var(--main-text-color);
+  font-weight: 200;
+}
+
+main {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: var(--main-bg-color);
+}
+
+.scrollable {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  will-change: transform;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.grid__container {
+  display: grid;
+  width: 100%;
+  max-width: var(--max-width);
+  grid-template-columns: repeat(12, 1fr);
+}
+
+/* HEADER */
+
+header {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.header__container {
+  width: 95%;
+  height: 100%;
+  max-width: var(--max-width);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__nav__toggle {
+  width: 30px;
+  height: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.header__nav__toggle span {
+  width: 100%;
+  height: 1px;
+  background-color: var(--main-text-color);
+}
+
+/* HERO SECTION */
+
+#hero {
+  height: 90vh;
+  min-height: 400px;
+  padding-bottom: 10vh;
+}
+
+.hero__header {
+  position: relative;
+  width: 95%;
+  max-width: var(--max-width);
+  height: 50%;
+}
+.hero__text {
+  grid-column: 4 / span 6;
+  text-align: center;
+}
+
+.hero__logo {
+  margin-bottom: 1rem;
+}
+
+.hero__text p {
+  font-size: 0.9rem;
+}
+
+.hero__scroll {
+  position: relative;
+  height: 50%;
+  width: 95%;
+  max-width: var(--max-width);
+}
+
+.scroll__arrow {
+  grid-column: 6 / span 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.scroll__arrow svg {
+  width: 10px;
+  margin-bottom: 1rem;
+}
+
+/* MEDIA SECTION */
+
+#media__section {
+  position: relative;
+  height: 100vh;
+  margin-bottom: 100px;
+}
+
+.media__wrapper {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  overflow: hidden;
+  clip-path: polygon(15% 0%, 85% 0%, 85% 100%, 15% 100%);
+}
+
+video {
+  /* Make video to at least 100% wide and tall */
+  min-width: 100%;
+  min-height: 100%;
+
+  /* Setting width & height to auto prevents the browser from stretching or squishing the video */
+  width: auto;
+  height: auto;
+
+  /* Center the video */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* ABOUT */
+
+#about {
+  display: flex;
+  height: 100vh;
+}
+
+.about__container {
+  width: 95%;
+  height: 100%;
+}
+
+.about__text {
+  grid-column: 1 / span 3;
+}
+
+.image__gallery {
+  position: relative;
+  grid-column: 5 / span 8;
+  overflow: hidden;
+  height: 0;
+  padding-top: 56%;
+}
+
+.image__gallery__container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+}
+
+.image__slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-flex;
+  height: 100%;
+  width: 1200%;
+  transition:  .5s;
+  /* min-width: 400%; */
+  /* width: auto; */
+}
+
+.slider__image__wrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.slider__image__wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.left {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50px;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #13131354;
+  backdrop-filter: blur(10px);
+}
+
+.right {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 50px;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #13131354;
+  backdrop-filter: blur(10px);
+}
+
+.left svg {
+  height: 40px;
+  transform-origin: center;
+  transform: rotate(90deg);
+  cursor: pointer;
+}
+
+.right svg {
+  height: 40px;
+  transform-origin: center;
+  transform: rotate(-90deg);
+  cursor: pointer;
+}
